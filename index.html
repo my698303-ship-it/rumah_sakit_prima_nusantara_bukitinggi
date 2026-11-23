@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Informasi Rumah Sakit Prima Nusantara Bukittinggi</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Hubungkan ke file CSS Terpisah -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#f7f9fb] text-slate-800 antialiased">
+
+  <!-- ========================================== -->
+  <!-- 1. HALAMAN LOGIN                           -->
+  <!-- ========================================== -->
+  <div id="view-login" class="min-h-screen w-full flex flex-col md:flex-row">
+    <!-- Kolom Kiri: Info & Branding Rumah Sakit -->
+    <div class="md:w-5/12 bg-sky-700 text-white p-8 md:p-12 flex flex-col justify-between relative overflow-hidden">
+      <div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-white text-sky-700 flex items-center justify-center text-xl font-bold shadow-md">
+            <i class="fa-solid fa-hospital"></i>
+          </div>
+          <div>
+            <h1 class="text-xl font-bold tracking-tight">RS Prima Nusantara</h1>
+            <p class="text-xs text-sky-200">BUKITTINGGI • PORTAL RESMI</p>
+          </div>
+        </div>
+
+        <div class="mt-16 space-y-6">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-sky-800/80 text-sky-200 border border-sky-600">
+            <i class="fa-solid fa-shield-halved"></i> SIMRS Terintegrasi v4.2
+          </span>
+          <h2 class="text-3xl font-extrabold leading-tight">
+            Sistem Informasi Manajemen Rumah Sakit Prima Nusantara Bukittinggi
+          </h2>
+          <p class="text-sky-100 text-sm leading-relaxed">
+            Platform digital terpusat untuk optimalisasi layanan kesehatan, rekam medis elektronik terpadu, serta manajemen administrasi rumah sakit yang cepat, akurat, dan aman.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 my-8">
+        <div class="p-4 rounded-xl bg-sky-800/50 border border-sky-600/50">
+          <i class="fa-solid fa-lock text-sky-300 text-lg mb-2"></i>
+          <h3 class="text-xs font-semibold">Enkripsi Data Medis</h3>
+          <p class="text-[11px] text-sky-200 mt-0.5">Standar Rekam Medis (RME)</p>
+        </div>
+        <div class="p-4 rounded-xl bg-sky-800/50 border border-sky-600/50">
+          <i class="fa-solid fa-bolt text-sky-300 text-lg mb-2"></i>
+          <h3 class="text-xs font-semibold">Respon Cepat</h3>
+          <p class="text-[11px] text-sky-200 mt-0.5">Real-time antrean poliklinik</p>
+        </div>
+      </div>
+
+      <div class="text-xs text-sky-300 flex justify-between border-t border-sky-600/60 pt-4">
+        <span>© 2023 RS Prima Nusantara Bukittinggi</span>
+        <span>Bantuan IT SIMRS</span>
+      </div>
+    </div>
+
+    <!-- Kolom Kanan: Formulir Login -->
+    <div class="md:w-7/12 flex items-center justify-center p-8 bg-slate-50">
+      <div class="w-full max-w-md bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900">Masuk ke Sistem</h2>
+        <p class="text-sm text-slate-500 mt-1">Silakan masukkan kredensial Anda untuk mengakses portal rumah sakit.</p>
+
+        <div class="mt-6">
+          <label class="block text-xs font-semibold uppercase text-slate-500 mb-2">Pilih Peran Akses</label>
+          <div class="grid grid-cols-2 gap-2 p-1 bg-slate-100 rounded-xl">
+            <button type="button" class="py-2 text-xs font-semibold rounded-lg bg-white shadow-sm text-sky-700">Petugas RS</button>
+            <button type="button" class="py-2 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900">Administrator</button>
+          </div>
+        </div>
+
+        <form id="form-login" class="mt-6 space-y-4">
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1.5">Username atau Email</label>
+            <div class="relative">
+              <i class="fa-regular fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+              <input type="text" id="login-username" value="admin@primanusantara.co.id" required 
+                     class="w-full pl-10 pr-4 py-2.5 bg-slate-50 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500">
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-1.5">
+              <label class="text-xs font-medium text-slate-700">Password</label>
+              <a href="#" class="text-xs text-sky-600 hover:underline">Lupa password?</a>
+            </div>
+            <div class="relative">
+              <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+              <input type="password" id="login-password" value="rsprima123" required 
+                     class="w-full pl-10 pr-4 py-2.5 bg-slate-50 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500">
+            </div>
+          </div>
+
+          <div class="flex items-center">
+            <input type="checkbox" id="remember" checked class="rounded text-sky-600 focus:ring-sky-500">
+            <label for="remember" class="ml-2 text-xs text-slate-600">Ingat saya di perangkat ini</label>
+          </div>
+
+          <button type="submit" class="w-full py-3 bg-sky-600 hover:bg-sky-700 text-white font-medium text-sm rounded-xl shadow-sm transition flex items-center justify-center gap-2">
+            <span>Masuk ke Sistem</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================== -->
+  <!-- 2. WRAPPER APLIKASI UTAMA                  -->
+  <!-- ========================================== -->
+  <div id="view-app" class="hidden flex h-screen overflow-hidden">
+
+    <!-- SIDEBAR NAVIGASI -->
+    <aside class="no-print w-64 bg-white border-r border-slate-200 flex flex-col justify-between shrink-0">
+      <div>
+        <div class="h-20 flex items-center px-6 border-b border-slate-100 gap-3">
+          <div class="w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center text-xl shadow-sm">
+            <i class="fa-solid fa-hospital"></i>
+          </div>
+          <div>
+            <h1 class="font-bold text-slate-900 leading-tight">RS Prima Nusantara</h1>
+            <p class="text-xs text-slate-500">Bukittinggi</p>
+          </div>
+        </div>
+
+        <nav class="p-4 space-y-1.5" id="nav-links">
+          <button id="nav-dashboard" class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-sky-600 text-white font-medium shadow-sm transition">
+            <i class="fa-solid fa-table-cells-large w-5"></i>
+            <span>Dashboard</span>
+          </button>
+          <button id="nav-pasien" class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-slate-900 font-medium transition">
+            <i class="fa-solid fa-id-card-clip w-5"></i>
+            <span>Data Pasien</span>
+          </button>
+          <button id="nav-kunjungan" class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-slate-900 font-medium transition">
+            <i class="fa-solid fa-notes-medical w-5"></i>
+            <span>Kunjungan & Riwayat</span>
+          </button>
+          <button id="nav-rekap" class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-slate-900 font-medium transition">
+            <i class="fa-solid fa-print w-5"></i>
+            <span>Cetak Rekap</span>
+          </button>
+          <button id="nav-akun" class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-slate-900 font-medium transition">
+            <i class="fa-solid fa-user-gear w-5"></i>
+            <span>Kelola Akun</span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="p-4 border-t border-slate-100">
+        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/60 flex items-center justify-between">
+          <div class="truncate">
+            <p class="text-sm font-semibold text-slate-800 truncate">Petugas RS</p>
+            <p class="text-xs text-slate-500 truncate">admin@primanusantara.co.id</p>
+          </div>
+          <button id="btn-logout" title="Keluar / Logout" class="p-2 text-slate-400 hover:text-rose-600 transition">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+
+      <!-- TOP NAVBAR -->
+      <header class="no-print h-20 bg-white border-b border-slate-200 flex items-center justify-between px-8 sticky top-0 z-10">
+        <div class="w-96 relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+          <input type="text" id="global-search" placeholder="Cari nama pasien, No. RM..." 
+                 class="w-full pl-10 pr-4 py-2 bg-slate-50 hover:bg-slate-100 focus:bg-white text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition">
+        </div>
+
+        <div class="flex items-center gap-5">
+          <div class="text-right hidden sm:block">
+            <span class="text-sm font-medium text-slate-700">Rumah Sakit Prima Nusantara Bukittinggi</span>
+          </div>
+          <div class="h-6 w-px bg-slate-200"></div>
+          <button class="relative p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition">
+            <i class="fa-regular fa-bell text-lg"></i>
+            <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full"></span>
+          </button>
+          <div class="flex items-center gap-3 pl-2">
+            <div class="w-10 h-10 rounded-full bg-sky-700 text-white flex items-center justify-center font-bold text-sm">
+              <i class="fa-solid fa-user-doctor"></i>
+            </div>
+            <div class="hidden md:block">
+              <p class="text-sm font-semibold text-slate-800 leading-tight">Dokter Yusuf</p>
+              <p class="text-xs text-slate-500">Administrator Medis</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN PAGES CONTAINER -->
+      <main class="p-8">
+
+        <!-- ================= HALAMAN: DASHBOARD ================= -->
+        <section id="page-dashboard" class="page-section active space-y-6">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+              <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sky-700">
+                <span>Overview Rumah Sakit</span>
+                <span>•</span>
+                <span class="text-slate-500 font-normal">Senin, 24 Oktober 2023</span>
+              </div>
+              <h2 class="text-2xl font-bold text-slate-900 mt-1">Dashboard Operasional RS</h2>
+            </div>
+            <div class="flex items-center gap-3">
+              <button id="btn-goto-pasien" class="inline-flex items-center gap-2 px-4 py-2.5 bg-sky-600 hover:bg-sky-700 text-white text-sm font-medium rounded-xl shadow-sm transition">
+                <i class="fa-solid fa-user-plus text-xs"></i>
+                <span>Kelola Pasien</span>
+              </button>
+              <button id="btn-goto-kunjungan" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-sm font-medium rounded-xl shadow-sm transition">
+                <i class="fa-solid fa-notes-medical text-xs text-sky-600"></i>
+                <span>Catat Kunjungan</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 4 KPI Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+              <div class="flex justify-between items-start">
+                <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-xl">
+                  <i class="fa-solid fa-hospital-user"></i>
+                </div>
+                <span class="px-2.5 py-1 text-xs font-medium text-emerald-700 bg-emerald-50 rounded-full">+12% bln ini</span>
+              </div>
+              <p class="text-xs uppercase tracking-wider font-semibold text-slate-400 mt-4">Total Pasien Terdaftar</p>
+              <p class="text-2xl font-bold text-slate-900 mt-1" id="stat-total-pasien">1,482</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+              <div class="flex justify-between items-start">
+                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl">
+                  <i class="fa-solid fa-users-viewfinder"></i>
+                </div>
+                <span class="px-2.5 py-1 text-xs font-medium text-sky-700 bg-sky-50 rounded-full">Hari ini</span>
+              </div>
+              <p class="text-xs uppercase tracking-wider font-semibold text-slate-400 mt-4">Kunjungan Hari Ini</p>
+              <p class="text-2xl font-bold text-slate-900 mt-1" id="stat-kunjungan">42</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+              <div class="flex justify-between items-start">
+                <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl">
+                  <i class="fa-solid fa-stethoscope"></i>
+                </div>
+                <span class="px-2.5 py-1 text-xs font-medium text-teal-700 bg-teal-50 rounded-full">Aktif</span>
+              </div>
+              <p class="text-xs uppercase tracking-wider font-semibold text-slate-400 mt-4">Dokter Bertugas</p>
+              <p class="text-2xl font-bold text-slate-900 mt-1">2</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+              <div class="flex justify-between items-start">
+                <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl">
+                  <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <span class="px-2.5 py-1 text-xs font-medium text-slate-600 bg-slate-100 rounded-full">Oktober</span>
+              </div>
+              <p class="text-xs uppercase tracking-wider font-semibold text-slate-400 mt-4">Rekap Bulanan</p>
+              <p class="text-2xl font-bold text-slate-900 mt-1">984</p>
+            </div>
+          </div>
+
+          <!-- Grafik & Dokter Jaga -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+              <div class="flex items-center justify-between mb-6">
+                <div>
+                  <h3 class="font-bold text-slate-900">Grafik Kunjungan Poliklinik Mingguan</h3>
+                  <p class="text-xs text-slate-500">Statistik pasien per hari (Senin - Minggu)</p>
+                </div>
+              </div>
+              <div class="h-56 flex items-end justify-between gap-4 pt-6 px-4 border-b border-slate-100">
+                <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
+                  <div class="w-full bg-sky-100 rounded-t-lg" style="height: 50%;"></div>
+                  <span class="text-xs text-slate-500">Sen</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
+                  <div class="w-full bg-sky-100 rounded-t-lg" style="height: 70%;"></div>
+                  <span class="text-xs text-slate-500">Sel</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
+                  <div class="w-full bg-sky-100 rounded-t-lg" style="height: 65%;"></div>
+                  <span class="text-xs text-slate-500">Rab</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
+                  <div class="w-full bg-sky-100 rounded-t-lg" style="height: 60%;"></div>
+                  <span class="text-xs text-slate-500">Kam</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
+                  <div class="w-full bg-sky-600 rounded-t-lg shadow-sm" style="height: 90%;"></div>
+                  <span class="text-xs font-bold text-slate-900">Jum</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
+                  <div class="w-full bg-sky-100 rounded-t-lg" style="height: 40%;"></div>
+                  <span class="text-xs text-slate-500">Sab</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
+                  <div class="w-full bg-sky-100 rounded-t-lg" style="height: 30%;"></div>
+                  <span class="text-xs text-slate-500">Min</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dokter Jaga: Dokter Yusuf & Dokter Lynch -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+              <div>
+                <h3 class="font-bold text-slate-900 mb-4">Dokter Jaga Hari Ini</h3>
+                <div class="space-y-3">
+                  <!-- Dokter 1: Dokter Yusuf -->
+                  <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between border border-slate-100">
+                    <div class="flex items-center gap-3">
+                      <div class="w-8 h-8 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-xs">DY</div>
+                      <div>
+                        <p class="text-xs font-semibold text-slate-800">Dokter Yusuf</p>
+                        <p class="text-[11px] text-slate-400">Poli Umum & Spesialis</p>
+                      </div>
+                    </div>
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  </div>
+                  <!-- Dokter 2: Dokter Lynch -->
+                  <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between border border-slate-100">
+                    <div class="flex items-center gap-3">
+                      <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs">DL</div>
+                      <div>
+                        <p class="text-xs font-semibold text-slate-800">Dokter Lynch</p>
+                        <p class="text-[11px] text-slate-400">Poli Spesialis Bedah</p>
+                      </div>
+                    </div>
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  </div>
+                </div>
+              </div>
+              <button id="btn-goto-rekap" class="w-full mt-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl">Lihat Laporan Lengkap</button>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================= HALAMAN: DATA PASIEN ================= -->
+        <section id="page-pasien" class="page-section space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="text-2xl font-bold text-slate-900">Kelola Data Pasien</h2>
+              <p class="text-sm text-slate-500">Database rekam medis pasien di Rumah Sakit Prima Nusantara Bukittinggi</p>
+            </div>
+            <button id="btn-buka-modal-pasien" class="inline-flex items-center gap-2 px-4 py-2.5 bg-sky-600 hover:bg-sky-700 text-white text-sm font-medium rounded-xl shadow-sm transition">
+              <i class="fa-solid fa-plus text-xs"></i>
+              <span>Tambah Pasien Baru</span>
+            </button>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-slate-50 border-b border-slate-100 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                    <th class="py-3 px-6">No. Rekam Medis</th>
+                    <th class="py-3 px-6">Nama Lengkap</th>
+                    <th class="py-3 px-6">NIK</th>
+                    <th class="py-3 px-6">Gender / Umur</th>
+                    <th class="py-3 px-6">No. Telepon</th>
+                    <th class="py-3 px-6">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="tabel-body-pasien" class="divide-y divide-slate-100 text-sm">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================= HALAMAN: KUNJUNGAN & RIWAYAT ================= -->
+        <section id="page-kunjungan" class="page-section space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="text-2xl font-bold text-slate-900">Pencatatan Kunjungan & Riwayat Medis</h2>
+              <p class="text-sm text-slate-500">Pendaftaran rawat jalan dan antrean dokter poliklinik</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="font-bold text-slate-800 text-base mb-4">Formulir Pendaftaran Kunjungan Baru</h3>
+            <form id="form-kunjungan" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div>
+                <label class="block text-xs font-medium text-slate-600 mb-1">Pilih Pasien</label>
+                <select id="kunjungan-pasien" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs">
+                  <option value="Hesti Widya (RM-2023-1482)">Hesti Widya (RM-2023-1482)</option>
+                  <option value="Ahmad Rizki (RM-2023-1481)">Ahmad Rizki (RM-2023-1481)</option>
+                  <option value="Dewi Sartika (RM-2023-1480)">Dewi Sartika (RM-2023-1480)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-slate-600 mb-1">Poli Tujuan</label>
+                <select id="kunjungan-poli" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs">
+                  <option value="Poli Umum (Dokter Yusuf)">Poli Umum (Dokter Yusuf)</option>
+                  <option value="Poli Bedah (Dokter Lynch)">Poli Bedah (Dokter Lynch)</option>
+                  <option value="Poli Anak">Poli Anak</option>
+                  <option value="Poli Gigi">Poli Gigi</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-slate-600 mb-1">Keluhan Utama</label>
+                <input type="text" id="kunjungan-keluhan" required placeholder="Contoh: Demam, Batuk..." class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs">
+              </div>
+              <div class="flex items-end">
+                <button type="submit" class="w-full py-2.5 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-medium">
+                  + Daftarkan Kunjungan
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="p-4 border-b border-slate-100 font-bold text-slate-800 text-sm">Daftar Antrean & Kunjungan Hari Ini</div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-slate-50 border-b border-slate-100 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                    <th class="py-3 px-6">Nama Pasien</th>
+                    <th class="py-3 px-6">Poli</th>
+                    <th class="py-3 px-6">Keluhan</th>
+                    <th class="py-3 px-6">Waktu</th>
+                    <th class="py-3 px-6">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="tabel-body-kunjungan" class="divide-y divide-slate-100 text-sm">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================= HALAMAN: CETAK REKAP ================= -->
+        <section id="page-rekap" class="page-section space-y-6">
+          <div class="no-print flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="text-2xl font-bold text-slate-900">Rekap Laporan Kunjungan RS</h2>
+              <p class="text-sm text-slate-500">Laporan cetak resmi untuk arsip manajemen rumah sakit</p>
+            </div>
+            <button id="btn-print-laporan" class="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 hover:bg-sky-700 text-white text-sm font-semibold rounded-xl shadow-sm transition">
+              <i class="fa-solid fa-print"></i>
+              <span>Cetak Laporan (Print / PDF)</span>
+            </button>
+          </div>
+
+          <!-- Lembar Cetak Dokumen -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm max-w-4xl mx-auto">
+            <div class="text-center border-b-2 border-slate-800 pb-4 mb-6">
+              <h1 class="text-xl font-bold uppercase tracking-wider text-slate-900">Rumah Sakit Prima Nusantara Bukittinggi</h1>
+              <p class="text-xs text-slate-600">Jl. Sudirman No. 45, Bukittinggi, Sumatera Barat • Telp: (0752) 23456 • Email: kontak@primanusantara.co.id</p>
+              <h2 class="text-sm font-bold uppercase mt-3 text-sky-800 underline">Laporan Rekapitulasi Pelayanan Pasien Bulanan</h2>
+              <p class="text-xs text-slate-500 mt-1">Periode: Oktober 2023</p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 mb-6 text-center text-xs">
+              <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+                <span class="text-slate-500 block">Total Pasien Terdaftar</span>
+                <span class="text-base font-bold text-slate-800">1,482 Jiwa</span>
+              </div>
+              <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+                <span class="text-slate-500 block">Total Kunjungan Poli</span>
+                <span class="text-base font-bold text-slate-800">984 Kunjungan</span>
+              </div>
+              <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+                <span class="text-slate-500 block">Poli Terbanyak</span>
+                <span class="text-base font-bold text-slate-800">Poli Umum (58%)</span>
+              </div>
+            </div>
+
+            <table class="w-full text-xs text-left border border-slate-300">
+              <thead class="bg-slate-100 border-b border-slate-300 font-bold">
+                <tr>
+                  <th class="p-2 border-r border-slate-300">No</th>
+                  <th class="p-2 border-r border-slate-300">Poliklinik</th>
+                  <th class="p-2 border-r border-slate-300">Dokter Penanggung Jawab</th>
+                  <th class="p-2 border-r border-slate-300 text-center">Jumlah Pasien</th>
+                  <th class="p-2 text-center">Status Operasional</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200">
+                <tr>
+                  <td class="p-2 border-r border-slate-300">1</td>
+                  <td class="p-2 border-r border-slate-300 font-semibold">Poli Umum</td>
+                  <td class="p-2 border-r border-slate-300">Dokter Yusuf</td>
+                  <td class="p-2 border-r border-slate-300 text-center">572</td>
+                  <td class="p-2 text-center text-emerald-600 font-semibold">Lancar</td>
+                </tr>
+                <tr>
+                  <td class="p-2 border-r border-slate-300">2</td>
+                  <td class="p-2 border-r border-slate-300 font-semibold">Poli Bedah</td>
+                  <td class="p-2 border-r border-slate-300">Dokter Lynch, Sp.B</td>
+                  <td class="p-2 border-r border-slate-300 text-center">268</td>
+                  <td class="p-2 text-center text-emerald-600 font-semibold">Lancar</td>
+                </tr>
+                <tr>
+                  <td class="p-2 border-r border-slate-300">3</td>
+                  <td class="p-2 border-r border-slate-300 font-semibold">Poli Gigi & Mulut</td>
+                  <td class="p-2 border-r border-slate-300">Drg. Siska Nurul</td>
+                  <td class="p-2 border-r border-slate-300 text-center">144</td>
+                  <td class="p-2 text-center text-emerald-600 font-semibold">Lancar</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="mt-8 flex justify-end text-xs text-center">
+              <div>
+                <p>Bukittinggi, 24 Oktober 2023</p>
+                <p class="font-semibold text-slate-800 mt-1">Direktur Pelayanan Medis</p>
+                <div class="h-16"></div>
+                <p class="font-bold underline text-slate-900">( Dokter Yusuf )</p>
+                <p class="text-slate-500">NIP: 19820514 200801 1 003</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================= HALAMAN: KELOLA AKUN ================= -->
+        <section id="page-akun" class="page-section space-y-6">
+          <div>
+            <h2 class="text-2xl font-bold text-slate-900">Manajemen Hak Akses & Akun SIMRS</h2>
+            <p class="text-sm text-slate-500">Kelola pengguna sistem RS Prima Nusantara Bukittinggi</p>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="p-4 border-b border-slate-100 flex justify-between items-center">
+              <span class="font-bold text-sm text-slate-800">Daftar Akun Terdaftar</span>
+              <button id="btn-tambah-akun" class="px-3 py-1.5 bg-sky-600 text-white rounded-lg text-xs font-medium">
+                + Tambah Akun
+              </button>
+            </div>
+            <table class="w-full text-left border-collapse text-sm">
+              <thead class="bg-slate-50 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                <tr>
+                  <th class="py-3 px-6">Nama Pengguna</th>
+                  <th class="py-3 px-6">Email / Username</th>
+                  <th class="py-3 px-6">Peran (Role)</th>
+                  <th class="py-3 px-6">Status</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr>
+                  <td class="py-4 px-6 font-semibold text-slate-800">Dokter Yusuf</td>
+                  <td class="py-4 px-6 text-slate-500">admin@primanusantara.co.id</td>
+                  <td class="py-4 px-6"><span class="px-2 py-1 rounded bg-sky-100 text-sky-800 text-xs font-semibold">Administrator Medis</span></td>
+                  <td class="py-4 px-6"><span class="text-emerald-600 font-medium text-xs">● Aktif</span></td>
+                </tr>
+                <tr>
+                  <td class="py-4 px-6 font-semibold text-slate-800">Dokter Lynch</td>
+                  <td class="py-4 px-6 text-slate-500">lynch@primanusantara.co.id</td>
+                  <td class="py-4 px-6"><span class="px-2 py-1 rounded bg-indigo-100 text-indigo-800 text-xs font-semibold">Dokter Spesialis</span></td>
+                  <td class="py-4 px-6"><span class="text-emerald-600 font-medium text-xs">● Aktif</span></td>
+                </tr>
+                <tr>
+                  <td class="py-4 px-6 font-semibold text-slate-800">Staff Pendaftaran Pasien</td>
+                  <td class="py-4 px-6 text-slate-500">petugas@primanusantara.co.id</td>
+                  <td class="py-4 px-6"><span class="px-2 py-1 rounded bg-slate-100 text-slate-700 text-xs font-semibold">Petugas RS</span></td>
+                  <td class="py-4 px-6"><span class="text-emerald-600 font-medium text-xs">● Aktif</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+
+  <!-- ========================================== -->
+  <!-- MODAL: TAMBAH PASIEN BARU                  -->
+  <!-- ========================================== -->
+  <div id="modal-pasien" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg rounded-2xl shadow-xl border border-slate-100 p-6">
+      <div class="flex justify-between items-center pb-3 border-b border-slate-100">
+        <h3 class="font-bold text-slate-800">Pendaftaran Pasien Baru RS</h3>
+        <button id="btn-tutup-modal-x" class="text-slate-400 hover:text-slate-600 text-lg">✕</button>
+      </div>
+
+      <form id="form-pasien-baru" class="mt-4 space-y-3">
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">Nama Lengkap Pasien</label>
+          <input type="text" id="modal-nama" required placeholder="Contoh: Siti Rahmawati" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-sky-500">
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">NIK (Nomor Induk Kependudukan)</label>
+          <input type="text" id="modal-nik" required placeholder="1375xxxxxxxxxxxx" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">Jenis Kelamin</label>
+            <select id="modal-gender" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs">
+              <option value="Perempuan">Perempuan</option>
+              <option value="Laki-laki">Laki-laki</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">Umur (Tahun)</label>
+            <input type="number" id="modal-umur" required placeholder="28" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs">
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">Nomor Telepon / WhatsApp</label>
+          <input type="text" id="modal-telp" required placeholder="0812-xxxx-xxxx" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs">
+        </div>
+
+        <div class="flex justify-end gap-2 pt-4 border-t border-slate-100">
+          <button type="button" id="btn-tutup-modal-batal" class="px-4 py-2 text-xs font-medium text-slate-600 bg-slate-100 rounded-xl">Batal</button>
+          <button type="submit" class="px-5 py-2 text-xs font-medium text-white bg-sky-600 hover:bg-sky-700 rounded-xl">Simpan Data</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Hubungkan ke file JavaScript Terpisah -->
+  <script src="script.js"></script>
+</body>
+</html>

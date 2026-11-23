@@ -1,0 +1,104 @@
+/* ========================================================
+   STYLING UTAMA - SISTEM INFORMASI KLINIK SEHAT SENTOSA
+   File: style.css
+   ======================================================== */
+
+/* Reset dasar & Font */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f9fb;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========================================================
+   LOGIKA TAB & NAVIGASI HALAMAN (SINGLE PAGE APPLICATION)
+   ======================================================== */
+
+/* Semua section halaman disembunyikan secara default */
+.page-section {
+  display: none;
+}
+
+/* Hanya section yang memiliki kelas .active yang ditampilkan */
+.page-section.active {
+  display: block;
+}
+
+/* Efek transisi halus pada elemen interaktif */
+button, 
+a, 
+input, 
+select {
+  transition: all 0.15s ease-in-out;
+}
+
+/* Kustomisasi scrollbar agar lebih ramping & bersih */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ========================================================
+   ATURAN KHUSUS CETAK DOKUMEN (PRINT / EXPORT KE PDF)
+   ======================================================== */
+@media print {
+  /* Sembunyikan elemen navigasi saat mencetak */
+  .no-print,
+  aside,
+  header,
+  #modal-pasien,
+  button {
+    display: none !important;
+  }
+  
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  #view-app {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  
+  main {
+    padding: 0 !important;
+  }
+
+  /* Pastikan hanya halaman rekap laporan yang dicetak */
+  .page-section {
+    display: none !important;
+  }
+
+  #page-rekap {
+    display: block !important;
+  }
+
+  /* Hilangkan bayangan kartu pada cetakan */
+  .shadow-sm,
+  .shadow-md,
+  .shadow-lg {
+    box-shadow: none !important;
+  }
+}
